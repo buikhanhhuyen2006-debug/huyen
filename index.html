@@ -1,0 +1,816 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lolita Magazine</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#fff6f8;
+font-family:'Be Vietnam Pro',sans-serif;
+overflow-x:hidden;
+color:#5f4b50;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+.bg{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left,#ffdce7 0%,transparent 35%),
+radial-gradient(circle at bottom right,#ffeef4 0%,transparent 35%);
+z-index:-1;
+}
+
+.navbar{
+position:sticky;
+top:20px;
+z-index:999;
+padding:20px 40px;
+}
+
+.nav-inner{
+max-width:1450px;
+margin:auto;
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(14px);
+border-radius:30px;
+padding:20px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 10px 30px rgba(213,170,182,0.18);
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:2rem;
+color:#c87891;
+font-weight:700;
+}
+
+.menu{
+display:flex;
+gap:35px;
+}
+
+.menu a{
+text-decoration:none;
+color:#7c5d66;
+transition:0.3s;
+font-weight:500;
+}
+
+.menu a:hover{
+color:#ca7890;
+}
+
+.container{
+max-width:1450px;
+margin:auto;
+padding:40px;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.1fr 1fr;
+gap:35px;
+align-items:center;
+}
+
+.hero-left{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
+border-radius:40px;
+padding:70px;
+box-shadow:0 20px 50px rgba(214,177,190,0.18);
+}
+
+.tag{
+display:inline-block;
+padding:10px 20px;
+border-radius:999px;
+background:#fff0f4;
+color:#ca7890;
+margin-bottom:25px;
+font-size:0.9rem;
+letter-spacing:1px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:7rem;
+color:#ca7890;
+line-height:0.9;
+margin-bottom:20px;
+}
+
+.hero h2{
+font-family:'Cormorant Garamond',serif;
+font-size:2.2rem;
+margin-bottom:25px;
+color:#7a5861;
+}
+
+.hero p{
+line-height:2;
+font-size:1.05rem;
+}
+
+.buttons{
+display:flex;
+gap:18px;
+margin-top:35px;
+}
+
+.btn{
+padding:15px 28px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+transition:0.4s;
+font-weight:600;
+}
+
+.btn-primary{
+background:#ca7890;
+color:white;
+}
+
+.btn-secondary{
+background:white;
+color:#ca7890;
+}
+
+.hero-right{
+position:relative;
+height:780px;
+overflow:hidden;
+border-radius:40px;
+box-shadow:0 25px 60px rgba(207,165,178,0.25);
+}
+
+.hero-right img{
+height:100%;
+object-fit:cover;
+}
+
+.info-card{
+position:absolute;
+bottom:30px;
+left:30px;
+background:rgba(255,255,255,0.82);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:25px;
+width:320px;
+}
+
+.info-card h3{
+font-family:'Playfair Display',serif;
+color:#ca7890;
+margin-bottom:10px;
+font-size:1.5rem;
+}
+
+.info-card p{
+line-height:1.8;
+}
+
+.section-title{
+text-align:center;
+margin:100px 0 50px;
+}
+
+.section-title span{
+color:#d48ca1;
+text-transform:uppercase;
+letter-spacing:3px;
+font-size:0.9rem;
+}
+
+.section-title h2{
+font-family:'Playfair Display',serif;
+font-size:4rem;
+color:#875d68;
+margin-top:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.75);
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(214,177,190,0.18);
+transition:0.5s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+height:380px;
+object-fit:cover;
+}
+
+.card-content{
+padding:35px;
+}
+
+.category{
+color:#d48ca1;
+text-transform:uppercase;
+letter-spacing:2px;
+font-size:0.85rem;
+margin-bottom:15px;
+}
+
+.card h3{
+font-family:'Playfair Display',serif;
+font-size:2rem;
+color:#7d5963;
+margin-bottom:18px;
+}
+
+.card p{
+line-height:1.9;
+}
+
+.feature{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+margin-top:90px;
+}
+
+.feature-box{
+background:rgba(255,255,255,0.72);
+border-radius:40px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(214,177,190,0.18);
+}
+
+.feature-box img{
+height:380px;
+object-fit:cover;
+}
+
+.feature-content{
+padding:40px;
+}
+
+.feature-content h2{
+font-family:'Playfair Display',serif;
+color:#ca7890;
+font-size:2.7rem;
+margin-bottom:20px;
+}
+
+.feature-content p{
+line-height:2;
+}
+
+.quote{
+margin:110px auto;
+background:linear-gradient(135deg,#fff,#fff2f6);
+border-radius:45px;
+padding:90px 60px;
+text-align:center;
+box-shadow:0 20px 60px rgba(214,177,190,0.18);
+}
+
+.quote h2{
+font-family:'Cormorant Garamond',serif;
+font-size:3.2rem;
+color:#865a66;
+line-height:1.5;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:50px;
+}
+
+.gallery img{
+height:420px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(214,177,190,0.18);
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* NHÓM TÁC GIẢ */
+
+.author-gallery{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:50px;
+margin-bottom:100px;
+}
+
+.author-card{
+background:rgba(255,255,255,0.75);
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(214,177,190,0.18);
+transition:0.5s;
+}
+
+.author-card:hover{
+transform:translateY(-10px);
+}
+
+.author-card img{
+height:380px;
+object-fit:cover;
+}
+
+.author-info{
+padding:25px;
+text-align:center;
+}
+
+.author-info h3{
+font-family:'Playfair Display',serif;
+font-size:2rem;
+color:#ca7890;
+margin-bottom:10px;
+}
+
+.author-info p{
+color:#7d5963;
+letter-spacing:1px;
+}
+
+footer{
+margin-top:120px;
+padding:80px 40px;
+border-top:1px solid rgba(224,188,199,0.3);
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:50px;
+}
+
+.footer-logo{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+color:#ca7890;
+margin-bottom:20px;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#7d5963;
+}
+
+.footer-links a:hover{
+color:#ca7890;
+}
+
+.copyright{
+text-align:center;
+margin-top:50px;
+color:#977882;
+}
+
+@media(max-width:1200px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.feature{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+padding:20px;
+}
+
+.menu{
+display:none;
+}
+
+.hero-left{
+padding:40px 30px;
+}
+
+.hero h1{
+font-size:4.5rem;
+}
+
+.hero-right{
+height:550px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.author-gallery{
+grid-template-columns:1fr;
+}
+
+.section-title h2{
+font-size:2.5rem;
+}
+
+.quote h2{
+font-size:2rem;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<nav class="navbar">
+
+<div class="nav-inner">
+
+<div class="logo">
+Lolita
+</div>
+
+<div class="menu">
+<a href="#">Trang chủ</a>
+<a href="#">Harajuku</a>
+<a href="#">Magazine</a>
+<a href="#">Culture</a>
+<a href="#">Editorial</a>
+</div>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="tag">
+MAGAZINE EDITORIAL • LOLITA CULTURE
+</div>
+
+<h1>Lolita</h1>
+
+<h2>Cuộc nổi loạn dịu dàng mang tính toàn cầu</h2>
+
+<p>
+Lolita không chỉ là thời trang. Đó là một thế giới được tạo nên
+từ ren, nơ, váy xoè và vẻ đẹp Victorian cổ điển.
+</p>
+
+<div class="buttons">
+
+<button class="btn btn-primary">
+Khám phá
+</button>
+
+<button class="btn btn-secondary">
+Đọc Magazine
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="images/lolita10.png">
+
+<div class="info-card">
+
+<h3>Lolita là gì?</h3>
+
+<p>
+Phong cách thời trang Nhật Bản lấy cảm hứng từ Victorian &
+Rococo châu Âu với váy xoè, ren và vẻ đẹp cổ tích.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="section-title">
+
+<span>Phong cách nổi bật</span>
+
+<h2>Các nhánh Lolita chính</h2>
+
+</div>
+
+<section class="grid">
+
+<div class="card">
+
+<img src="images/lolita2.png">
+
+<div class="card-content">
+
+<div class="category">
+Sweet Lolita
+</div>
+
+<h3>Ngọt ngào như cổ tích</h3>
+
+<p>
+Tông pastel, ren trắng và váy bồng tạo nên
+thế giới mộng mơ như truyện cổ tích.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/lolita3.png">
+
+<div class="card-content">
+
+<div class="category">
+Gothic Lolita
+</div>
+
+<h3>Bóng tối lãng mạn</h3>
+
+<p>
+Màu đen, ren tối và phụ kiện cổ điển tạo nên vẻ đẹp bí ẩn.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/lolita4.png">
+
+<div class="card-content">
+
+<div class="category">
+Classic Lolita
+</div>
+
+<h3>Thanh lịch vượt thời gian</h3>
+
+<p>
+Gam màu vintage cùng tinh thần Victorian cổ điển.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="feature">
+
+<div class="feature-box">
+
+<img src="images/lolita5.png">
+
+<div class="feature-content">
+
+<h2>Nguồn gốc Harajuku</h2>
+
+<p>
+Lolita phát triển mạnh tại Harajuku vào cuối thập niên 1980.
+</p>
+
+</div>
+
+</div>
+
+<div class="feature-box">
+
+<img src="images/lolita1.png">
+
+<div class="feature-content">
+
+<h2>Lan toả toàn cầu</h2>
+
+<p>
+Lolita dần trở thành biểu tượng văn hoá xuất hiện trên toàn thế giới.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="quote">
+
+<h2>
+“Lolita không chỉ là thời trang —
+đó là cách chúng tôi kể câu chuyện của chính mình.”
+</h2>
+
+</section>
+
+<div class="section-title">
+
+<span>Editorial Gallery</span>
+
+<h2>Khoảnh khắc Lolita</h2>
+
+</div>
+
+<section class="gallery">
+
+<img src="images/lolita6.png">
+<img src="images/lolita7.png">
+<img src="images/lolita8.png">
+<img src="images/lolita9.png">
+
+</section>
+
+<!-- NHÓM TÁC GIẢ -->
+
+<div class="section-title">
+
+<span>Editorial Team</span>
+
+<h2>Nhóm tác giả</h2>
+
+</div>
+
+<section class="author-gallery">
+
+<div class="author-card">
+
+<img src="images/tacgia1.png">
+
+<div class="author-info">
+<h3>Linh Chi</h3>
+<p>Creative Director</p>
+</div>
+
+</div>
+
+<div class="author-card">
+
+<img src="images/tacgia2.png">
+
+<div class="author-info">
+<h3>Phuong Linh</h3>
+<p>Fashion Editor</p>
+</div>
+
+</div>
+
+<div class="author-card">
+
+<img src="images/tacgia3.png">
+
+<div class="author-info">
+<h3>Khanh Huyen</h3>
+<p>Visual Artist</p>
+</div>
+
+</div>
+
+<div class="author-card">
+
+<img src="images/tacgia4.png">
+
+<div class="author-info">
+<h3>Tam Anh</h3>
+<p>Magazine Designer</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-logo">
+Lolita Magazine
+</div>
+
+<p style="line-height:2;">
+Một giao diện magazine mang tinh thần của những toà soạn thời trang cao cấp.
+</p>
+
+</div>
+
+<div>
+
+<h3 style="margin-bottom:20px;color:#ca7890;font-family:'Playfair Display',serif;">
+Chuyên mục
+</h3>
+
+<div class="footer-links">
+<a href="#">Fashion Editorial</a>
+<a href="#">Street Culture</a>
+<a href="#">Harajuku</a>
+<a href="#">Vintage Lolita</a>
+</div>
+
+</div>
+
+<div>
+
+<h3 style="margin-bottom:20px;color:#ca7890;font-family:'Playfair Display',serif;">
+Social
+</h3>
+
+<div class="footer-links">
+<a href="#">Instagram</a>
+<a href="#">Pinterest</a>
+<a href="#">Behance</a>
+<a href="#">YouTube</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Lolita Magazine — Editorial Experience
+</div>
+
+</footer>
+
+</div>
+
+</body>
+</html>
+```
